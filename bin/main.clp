@@ -11,8 +11,11 @@
     (slot answer))
 
 (deftemplate solution
-    (slot text))
+    (slot solution))
 
+(deftemplate description
+    (slot description)
+)
 
 (deffacts questions
     "list of questions"
@@ -46,10 +49,9 @@
     =>
     (bind ?answer "")
     (while (and (neq (str-compare ?answer "yes") 0) (neq (str-compare ?answer "no") 0)) do
-        	
-        	(printout t ?text " [yes/no] : ")
-        	(bind ?answer (readline))
-    		(assert (answer (id ?i) (answer ?answer))))
+            (printout t ?text " [yes/no] : ")
+            (bind ?answer (readline))
+    	    (assert (answer (id ?i) (answer ?answer))))
     )
     
 
@@ -79,13 +81,15 @@
 (defrule 4-yes
     (answer (id 4) (answer "yes"))
     => 
-    (assert (solution (text "Anda cocok di jurusan matematika murni")))	
+    (assert (solution (solution "matematika murni")))	
+    (assert (description (description "Jurusan ini mempelajari tentang matematika secara murni, tanpa adanya aplikasi pada bidang lain."))) 
     )
 
 (defrule 4-no
     (answer (id 4) (answer "no"))
     => 
-    (assert (solution (text "Anda cocok di jurusan matematika terapan / teknik")))	
+    (assert (solution (solution "matematika terapan / teknik")))	
+    (assert (description (description "Jurusan ini mempelajari tentang matematika yang diterapkan pada bidang lain, seperti teknik, komputer, dan lain-lain.")))
     )
 
 (defrule 3-no-5
@@ -97,9 +101,10 @@
 
 
 (defrule 5-no
-    (answer (id 4) (answer "no"))
+    (answer (id 5) (answer "no"))
     => 
-    (assert (solution (text "Anda cocok di jurusan biologi")))	
+    (assert (solution (solution "biologi")))	
+    (assert (description (description "Jurusan ini mempelajari tentang kehidupan, baik itu hewan, tumbuhan, maupun manusia.")))
     )
 
 (defrule 5-yes-6
@@ -112,14 +117,16 @@
 (defrule 6-no
     (answer (id 6) (answer "no"))
     => 
-    (assert (solution (text "Anda cocok di jurusan farmasi")))	
-    )
+    (assert (solution (solution "farmasi")))	
+    (assert (description (description "Jurusan ini mempelajari tentang obat-obatan dan cara pembuatannya."))
+    ))
 
 (defrule 6-yes
     (answer (id 6) (answer "yes"))
     => 
-    (assert (solution (text "Anda cocok di jurusan kedokteran")))	
-    )
+    (assert (solution (solution "kedokteran")))	
+    (assert (description (description "Jurusan ini mempelajari tentang penyakit dan cara mengobatinya."))
+    ))
 
 (defrule 2-no-7
     (answer (id 2) (answer "no"))
@@ -131,8 +138,9 @@
 (defrule 7-yes
     (answer (id 7) (answer "yes"))
     => 
-    (assert (solution (text "Anda cocok di jurusan bisnis")))	
-    )
+    (assert (solution (solution "bisnis")))	
+    (assert (description (description "Jurusan ini mempelajari tentang bisnis dan cara mengelolanya."))
+    ))
 
 (defrule 7-no-8
     (answer (id 7) (answer "no"))
@@ -144,7 +152,8 @@
 (defrule 8-no
     (answer (id 8) (answer "no"))
     => 
-    (assert (solution (text "Anda cocok di jurusan akuntan")))	
+    (assert (solution (solution "akuntan")))	
+    (assert (description (description "Jurusan ini mempelajari tentang akuntansi dan cara mengelolanya.")))
     )
 
 (defrule 8-yes-9
@@ -157,14 +166,16 @@
 (defrule 9-yes
     (answer (id 9) (answer "yes"))
     => 
-    (assert (solution (text "Anda cocok di jurusan data analyst")))	
-    )
+    (assert (solution (solution "data analyst")))	
+    (assert (description (description "Jurusan ini mempelajari tentang analisis data dan cara mengolahnya."))
+    ))
 
 (defrule 9-no
     (answer (id 9) (answer "no"))
     => 
-    (assert (solution (text "Anda cocok di jurusan data statistika")))	
-    )
+    (assert (solution (solution "data statistika")))	
+    (assert (description (description "Jurusan ini mempelajari tentang statistika dan cara mengolahnya."))
+    ))
 
 (defrule 1-no-10
     (answer (id 1) (answer "no"))
@@ -183,8 +194,9 @@
 (defrule 11-yes
     (answer (id 11) (answer "yes"))
     => 
-	(assert (solution (text "Anda cocok di jurusan data hukum")))	
-    )
+	(assert (solution (solution "hukum")))	
+    (assert (description (description "Jurusan ini mempelajari tentang hukum dan cara mengelolanya."))
+    ))
 
 (defrule 11-no-12
     (answer (id 11) (answer "no"))
@@ -196,8 +208,10 @@
 (defrule 12-yes
     (answer (id 12) (answer "yes"))
     => 
-	(assert (solution (text "Anda cocok di jurusan ilmu komunikasi")))	
-    )
+	(assert (solution (solution "ilmu komunikasi"))
+    (assert (description (description "Jurusan ini mempelajari tentang komunikasi dan cara mengelolanya.")))
+    ))
+    
 
 (defrule 12-no-13
     (answer (id 12) (answer "no"))
@@ -209,13 +223,15 @@
 (defrule 13-yes
     (answer (id 13) (answer "yes"))
     => 
-	(assert (solution (text "Anda cocok di jurusan ilmu sosiologi")))	
+	(assert (solution (solution "ilmu sosiologi")))	
+    (assert (description (description "Jurusan ini mempelajari tentang sosiologi dan cara mengelolanya.")))
     )
 
 (defrule 13-no
     (answer (id 13) (answer "no"))
     => 
-	(assert (solution (text "Anda cocok di jurusan ilmu psikologi")))	
+	(assert (solution (solution "ilmu psikologi")))	
+    (assert (description (description "Jurusan ini mempelajari tentang psikologi dan cara mengelolanya.")))
     )
 
 (defrule 10-no-14
@@ -228,7 +244,8 @@
 (defrule 14-yes
     (answer (id 14) (answer "yes"))
     => 
-	(assert (solution (text "Anda cocok di jurusan bahasa")))	
+	(assert (solution (solution "bahasa")))	
+    (assert (description (description "Jurusan ini mempelajari tentang bahasa dan cara mengelolanya.")))
     )
 
 (defrule 14-no-15
@@ -241,22 +258,30 @@
 (defrule 15-yes
     (answer (id 15) (answer "yes"))
     => 
-	(assert (solution (text "Anda cocok di jurusan budaya")))	
+	(assert (solution (solution "budaya")))
+    (assert (description (description "Jurusan ini mempelajari tentang budaya dan cara mengelolanya.")))
     )
 
 (defrule 15-no
     (answer (id 15) (answer "no"))
     => 
-	(assert (solution (text "Anda cocok di jurusan filosofi")))	
-    )
+	(assert (solution (solution "filosofi")))	
+    (assert (description (description "Jurusan ini mempelajari tentang filosofi dan cara mengelolanya.")))
+)
 
 (defrule print-solution
-    (solution (text ?t))
+    (solution (solution ?t))
     =>
     (printout t ?t crlf)
+    )
+
+(defquery get-solution
+    (solution (solution ?text))
+    (description (description ?desc))
     )
 
 (reset)
 (run)
 
+; Create query to save the output
 
