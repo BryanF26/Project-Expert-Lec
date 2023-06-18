@@ -52,8 +52,9 @@
             (printout t ?text " [yes/no] : ")
             (bind ?answer (readline))
     	    (assert (answer (id ?i) (answer ?answer))))
+
     )
-    
+
 
 
 (defrule 1-yes-2
@@ -276,8 +277,8 @@
     )
 
 (defquery get-solution
-    (solution (solution ?text))
-    (description (description ?desc))
+    (solution (solution ?solution))
+    (description (description ?description))
     )
 
 (reset)

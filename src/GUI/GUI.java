@@ -33,9 +33,10 @@ public class GUI extends JFrame {
             QueryResult results = Main.engine.runQueryStar("get-solution", new ValueVector());
 
             while (results.next()) {
-                System.out.println("debug" + results.getString("text"));
-                this.solution = results.getString("text");
-                this.solutionDescription = results.getString("desc");
+                this.solution = results.getString("solution");
+                this.solutionDescription = results.getString("description");
+                data.add(new Vector<Object>());
+                data.get(data.size() - 1).add(results.getString("reason"));
             }
             
             resultSolution.setText(this.solution);
