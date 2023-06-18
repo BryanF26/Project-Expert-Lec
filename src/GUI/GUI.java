@@ -37,8 +37,6 @@ public class GUI extends JFrame {
                 this.solution = results.getString("solution");
                 this.solutionDescription = results.getString("description");
 
-                if(this.option == 1)
-                    continue;
 
                 data.add(new Vector<Object>());
                 data.get(data.size() - 1).add(results.getString("reason"));

@@ -385,7 +385,6 @@
     (assert (reason (id 10) (reason "Anda tidak tertarik pada ilmu sosial.")))
     (assert (reason (id 14) (reason "Anda tidak menyukai ilmu bahasa.")))
     (assert (reason (id 15) (reason "Anda tidak menyukai ilmu kebudayaan.")))
-    (assert (reason (id 16) (reason "Anda menyukai ilmu filosofi.")))
 )
 
 (defquery get-solution
