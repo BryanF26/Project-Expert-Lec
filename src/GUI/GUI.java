@@ -39,7 +39,7 @@ public class GUI extends JFrame {
 
                 if(this.option == 1)
                     continue;
-                    
+
                 data.add(new Vector<Object>());
                 data.get(data.size() - 1).add(results.getString("reason"));
             }
@@ -52,17 +52,6 @@ public class GUI extends JFrame {
             e.printStackTrace();
         }
 
-        // Contoh data dummy
-
-        // data.add(new Vector<Object>());
-        // data.get(0).add("Alasan 1");
-        // data.add(new Vector<Object>());
-        // data.get(1).add("Alasan 2");
-        // data.add(new Vector<Object>());
-        // data.get(2).add("Alasan 3");
-        // data.add(new Vector<Object>());
-        // data.get(3).add("Alasan 4");
-        
     }
     
     public void generateComponents() {

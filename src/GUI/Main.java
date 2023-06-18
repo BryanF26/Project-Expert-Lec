@@ -21,10 +21,8 @@ public class Main {
                 input = in.nextInt();
             } while (input != 1 && input != 2);
 
-            if (input == 1) 
-                engine.batch("../forward.clp");
-            if (input == 2)
-                engine.batch("../backward.clp");
+            if (input == 1) engine.batch("../forward.clp");
+            if (input == 2) engine.batch("../backward.clp");
             
             in.close();
 
