@@ -243,27 +243,27 @@
 (defrule matematika-murni-reason
     (solution (solution "Matematika Murni"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (reason (id 2) (reason "Anda menyukai sains.")))
-    (assert (reason (id 3) (reason "Anda menyukai menghitung.")))
+    (assert (reason (id 3) (reason "Anda menyukai matematika.")))
     (assert (reason (id 4) (reason "Anda berniat untuk menjadi peneliti di bidang matematika.")))
 )
 
 (defrule matematika-terapan-teknik-reason
     (solution (solution "Matematika Terapan / Teknik"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (reason (id 2) (reason "Anda menyukai sains.")))
-    (assert (reason (id 3) (reason "Anda menyukai menghitung.")))
+    (assert (reason (id 3) (reason "Anda menyukai matematika.")))
     (assert (reason (id 4) (reason "Anda tidak berniat untuk menjadi peneliti di bidang matematika.")))
 )
 
 (defrule kedokteran-reason
     (solution (solution "Kedokteran"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung")))
     (assert (reason (id 2) (reason "Anda menyukai sains.")))
-    (assert (reason (id 3) (reason "Anda tidak berniat untuk menjadi peneliti di bidang matematika.")))
+    (assert (reason (id 3) (reason "Anda menyukai matematika")))
     (assert (reason (id 5) (reason "Anda menyukai dunia kesehatan.")))
     (assert (reason (id 6) (reason "Anda menyukai dunia kedokteran.")))
 )
@@ -273,7 +273,7 @@
     =>
     (assert (reason (id 1) (reason "Anda menyukai matematika.")))
     (assert (reason (id 2) (reason "Anda menyukai sains.")))
-    (assert (reason (id 3) (reason "Anda tidak berniat untuk menjadi peneliti di bidang matematika.")))
+    (assert (reason (id 3) (reason "Anda tidak menyukai matematika")))
     (assert (reason (id 5) (reason "Anda menyukai dunia kesehatan.")))
     (assert (reason (id 6) (reason "Anda tidak menyukai dunia kedokteran.")))
 )
@@ -281,16 +281,16 @@
 (defrule biologi-reason
     (solution (solution "Biologi"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (reason (id 2) (reason "Anda menyukai sains.")))
-    (assert (reason (id 3) (reason "Anda tidak berniat untuk menjadi peneliti di bidang matematika.")))
+    (assert (reason (id 3) (reason "Anda tidak menyukai matematika")))
     (assert (reason (id 5) (reason "Anda tidak menyukai dunia kesehatan.")))
 )
 
 (defrule bisnis-reason
     (solution (solution "Bisnis"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung")))
     (assert (reason (id 2) (reason "Anda tidak menyukai sains.")))
     (assert (reason (id 7) (reason "Anda menyukai dunia bisnis.")))
 )
@@ -298,7 +298,7 @@
 (defrule data-analyst-reason
     (solution (solution "Data Analyst"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai mengghitung.")))
     (assert (reason (id 2) (reason "Anda tidak menyukai sains.")))
     (assert (reason (id 7) (reason "Anda tidak menyukai dunia bisnis.")))
     (assert (reason (id 8) (reason "Anda tertarik pada dunia analisis data dan statistika.")))
@@ -308,7 +308,7 @@
 (defrule statistika-reason
     (solution (solution "Statistika"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (reason (id 2) (reason "Anda tidak menyukai sains.")))
     (assert (reason (id 7) (reason "Anda tidak menyukai dunia bisnis.")))
     (assert (reason (id 8) (reason "Anda tertarik pada dunia analisis data dan statistika.")))
@@ -318,7 +318,7 @@
 (defrule akuntan-reason
     (solution (solution "Akuntan"))
     =>
-    (assert (reason (id 1) (reason "Anda menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (reason (id 2) (reason "Anda tidak menyukai sains.")))
     (assert (reason (id 7) (reason "Anda tidak menyukai dunia bisnis.")))
     (assert (reason (id 8) (reason "Anda tidak tertarik pada dunia analisis data dan statistika.")))
@@ -327,7 +327,7 @@
 (defrule hukum-reason
     (solution (solution "Hukum"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tertarik pada ilmu sosial.")))
     (assert (reason (id 11) (reason "Anda tertarik dengan dunia politik.")))
 )
@@ -335,7 +335,7 @@
 (defrule ilmu-komunikasi-reason
     (solution (solution "Ilmu Komunikasi"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tertarik pada ilmu sosial.")))
     (assert (reason (id 11) (reason "Anda tidak tertarik dengan dunia politik.")))
     (assert (reason (id 12) (reason "Anda tertarik dengan dunia komunikasi.")))
@@ -344,7 +344,7 @@
 (defrule sosiologi-reason
     (solution (solution "Sosiologi"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tertarik pada ilmu sosial.")))
     (assert (reason (id 11) (reason "Anda tidak tertarik dengan dunia politik.")))
     (assert (reason (id 12) (reason "Anda tidak tertarik dengan dunia komunikasi.")))
@@ -354,7 +354,7 @@
 (defrule psikologi-reason
     (solution (solution "Psikologi"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tertarik pada ilmu sosial.")))
     (assert (reason (id 11) (reason "Anda tidak tertarik dengan dunia politik.")))
     (assert (reason (id 12) (reason "Anda tidak tertarik dengan dunia komunikasi.")))
@@ -364,7 +364,7 @@
 (defrule bahasa-reason
     (solution (solution "Bahasa"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tidak tertarik pada ilmu sosial.")))
     (assert (reason (id 14) (reason "Anda menyukai ilmu bahasa.")))
 )
@@ -372,7 +372,7 @@
 (defrule budaya-reason
     (solution (solution "Budaya"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tidak tertarik pada ilmu sosial.")))
     (assert (reason (id 14) (reason "Anda tidak menyukai ilmu bahasa.")))
     (assert (reason (id 15) (reason "Anda menyukai ilmu kebudayaan.")))
@@ -381,7 +381,7 @@
 (defrule filosofi-reason
     (solution (solution "Filosofi"))
     =>
-    (assert (reason (id 1) (reason "Anda tidak menyukai matematika.")))
+    (assert (reason (id 1) (reason "Anda tidak menyukai menghitung.")))
     (assert (reason (id 10) (reason "Anda tidak tertarik pada ilmu sosial.")))
     (assert (reason (id 14) (reason "Anda tidak menyukai ilmu bahasa.")))
     (assert (reason (id 15) (reason "Anda tidak menyukai ilmu kebudayaan.")))

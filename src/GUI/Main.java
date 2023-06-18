@@ -16,7 +16,7 @@ public class Main {
             do {
                 System.out.println("Engine apa yang ingin anda coba gunakan?");
                 System.out.println("1. Forward chaining");
-                System.out.println("2. Backward chaining");
+                System.out.println("2. Backward chaining (Anda dapat melihat alasan dari setiap pertanyaan))");
                 System.out.println("Masukkan angka 1 atau 2 : ");
                 input = in.nextInt();
             } while (input != 1 && input != 2);
@@ -32,6 +32,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        new GUI();
+        new GUI(input);
     }
 }

@@ -11,6 +11,7 @@ import java.util.Vector;
 
 public class GUI extends JFrame {
 
+    Integer option = 0;
     String solution = "";
     String solutionDescription = "";
 
@@ -35,6 +36,10 @@ public class GUI extends JFrame {
             while (results.next()) {
                 this.solution = results.getString("solution");
                 this.solutionDescription = results.getString("description");
+
+                if(this.option == 1)
+                    continue;
+                    
                 data.add(new Vector<Object>());
                 data.get(data.size() - 1).add(results.getString("reason"));
             }
@@ -42,12 +47,6 @@ public class GUI extends JFrame {
             resultSolution.setText(this.solution);
             resultDescriptionLabel.setText(this.solutionDescription);
 
-            // QueryResult reasons = Main.engine.runQueryStar("get-reasons", new ValueVector());
-            
-            // while (reasons.next()) {
-            //     data.add(new Vector<Object>());
-            //     data.get(data.size() - 1).add(reasons.getString("reason"));
-            // }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,7 +98,8 @@ public class GUI extends JFrame {
     }
 
 
-    public GUI() {
+    public GUI(Integer option) {
+        this.option = option;
         setTitle("Aplikasi pemilihan keputusan jurusan");
         // set sizenya sesuai dengan isi komponen
         setSize(700, 500);
