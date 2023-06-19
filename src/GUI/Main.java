@@ -18,7 +18,16 @@ public class Main {
                 System.out.println("1. Forward chaining");
                 System.out.println("2. Backward chaining (Anda dapat melihat alasan dari setiap pertanyaan))");
                 System.out.println("Masukkan angka 1 atau 2 : ");
-                input = in.nextInt();
+                
+                try {
+                	input = in.nextInt();                	
+                } catch (Exception e) {
+                	e.printStackTrace();
+                	System.out.println("Your input is not valid.");
+                	input = -1;
+                }
+                
+                
             } while (input != 1 && input != 2);
 
             if (input == 1) engine.batch("../forward.clp");

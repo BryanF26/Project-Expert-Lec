@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import jess.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 
@@ -15,10 +17,16 @@ public class GUI extends JFrame {
     String solution = "";
     String solutionDescription = "";
 
+    JPanel choicePanel = new JPanel(new BorderLayout());
     JPanel resultPanel = new JPanel(new GridLayout(4, 1));
+    JPanel containerPanel = new JPanel(new GridLayout(2, 1));
     JLabel resultLabel = new JLabel("Anda cocok di jurusan :");
     JLabel resultSolution = new JLabel("TI");
     JLabel resultDescriptionLabel = new JLabel("Jurusan ini adalah...");
+    JRadioButton yesRadioButton = new JRadioButton("yes", true);
+    JRadioButton noRadioButton = new JRadioButton("no");
+    ButtonGroup choiceButtonGroup = new ButtonGroup();
+    JButton nextButton = new JButton("Next");
     
     JTable reasonTable = new JTable();
     JScrollPane reasonPane = new JScrollPane(reasonTable);
@@ -69,21 +77,46 @@ public class GUI extends JFrame {
         resultPanel.add(resultSolution);
         resultPanel.add(resultDescriptionLabel);
 
-        if (data.size() <= 0 ) {
-            data.add(new Vector<Object>());
-            data.get(0).add("Tidak ada alasan yang mendukung");
-            resultPanel.add(new JLabel("Tidak ada alasan yang mendukung"));
-        } else {
-            columns.add("Alasan-alasan yang mendukung");
-            reasonPane.setPreferredSize(new Dimension(400, 200));
-            reasonTable.setModel(new DefaultTableModel(data, columns));
-            reasonTable.setEnabled(false);
-            resultPanel.add(reasonPane);
-        }
-
-        add(resultPanel);
+        choiceButtonGroup.add(yesRadioButton);
+        choiceButtonGroup.add(noRadioButton);
+        choicePanel.add(yesRadioButton);
+        choicePanel.add(noRadioButton);
+        
+        nextButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String input;
+				input = yesRadioButton.isSelected() ? "yes" : "no";
+				
+				if(input.equals("no")) 
+					return;
+				
+				if (data.size() <= 0 ) {
+					data.add(new Vector<Object>());
+					data.get(0).add("Tidak ada alasan yang mendukung");
+					resultPanel.add(new JLabel("Tidak ada alasan yang mendukung"));
+				} else {
+					columns.add("Alasan-alasan yang mendukung");
+					reasonPane.setPreferredSize(new Dimension(400, 200));
+					reasonTable.setModel(new DefaultTableModel(data, columns));
+					reasonTable.setEnabled(false);
+					resultPanel.add(reasonPane);
+				}
+			}
+		});
+        
+        choicePanel.add();
+        
+        containerPanel.add(resultPanel);
+        containerPanel.add(choicePanel);
+        
+        add(containerPanel);
     }
 
+    public void promptAnswers() {
+    	
+    }
 
     public GUI(Integer option) {
         this.option = option;
@@ -93,6 +126,7 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        promptAnswers();
         generateComponents();
         pack();
         
