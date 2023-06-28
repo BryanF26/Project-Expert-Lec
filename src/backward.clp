@@ -18,7 +18,6 @@
     (slot description)
 )
 
-
 (deftemplate answer
     (slot id)
     (slot answer)
