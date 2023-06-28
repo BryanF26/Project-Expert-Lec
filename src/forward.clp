@@ -46,8 +46,6 @@
     =>
     (assert (ask (id 1) (text ?text))))
 
-
-
 (defrule ask-question
     (ask (id ?i) (text ?text))
     (not (answer (id ?i)))
@@ -60,8 +58,6 @@
 
     )
 
-
-
 (defrule 1-yes-2
     (answer (id 1) (answer "yes"))
     (question (id 2 ) (text ?text))
@@ -69,7 +65,6 @@
     (assert (reason (id 1) (reason "Anda menyukai menghitung.")))
     (assert (ask (id 2) (text ?text)))	
     )
-
 
 (defrule 2-yes-3
     (answer (id 2) (answer "yes"))
@@ -110,7 +105,6 @@
     (assert (reason (id 3) (reason "Anda tidak menyukai matematika.")))
     (assert (ask (id 5) (text ?text)))	
     )
-
 
 (defrule 5-no
     (answer (id 5) (answer "no"))
@@ -240,7 +234,6 @@
     (assert (description (description "Jurusan ini mempelajari tentang komunikasi dan cara mengelolanya.")))
     )
     
-
 (defrule 12-no-13
     (answer (id 12) (answer "no"))
     (question (id 13 ) (text ?text))

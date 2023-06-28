@@ -13,16 +13,22 @@ import java.util.Vector;
 
 public class GUI extends JFrame {
 
-    Integer option = 0;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	Integer option = 0;
     String solution = "";
     String solutionDescription = "";
 
-    JPanel choicePanel = new JPanel(new BorderLayout());
+    JPanel choicePanel = new JPanel(new GridLayout(4, 1));
     JPanel resultPanel = new JPanel(new GridLayout(4, 1));
     JPanel containerPanel = new JPanel(new GridLayout(2, 1));
     JLabel resultLabel = new JLabel("Anda cocok di jurusan :");
     JLabel resultSolution = new JLabel("TI");
     JLabel resultDescriptionLabel = new JLabel("Jurusan ini adalah...");
+    JLabel resultReason = new JLabel("Apakah anda ingin melihat alasannya?");
     JRadioButton yesRadioButton = new JRadioButton("yes", true);
     JRadioButton noRadioButton = new JRadioButton("no");
     ButtonGroup choiceButtonGroup = new ButtonGroup();
@@ -79,18 +85,21 @@ public class GUI extends JFrame {
 
         choiceButtonGroup.add(yesRadioButton);
         choiceButtonGroup.add(noRadioButton);
+        
+        choicePanel.add(resultReason);
         choicePanel.add(yesRadioButton);
         choicePanel.add(noRadioButton);
+        choicePanel.add(nextButton);
         
         nextButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String input;
-				input = yesRadioButton.isSelected() ? "yes" : "no";
-				
-				if(input.equals("no")) 
-					return;
+				String input = yesRadioButton.isSelected() ? "yes" : "no";
+				if(input.equals("no")) {
+					dispose();
+					return;					
+				}
 				
 				if (data.size() <= 0 ) {
 					data.add(new Vector<Object>());
@@ -103,11 +112,14 @@ public class GUI extends JFrame {
 					reasonTable.setEnabled(false);
 					resultPanel.add(reasonPane);
 				}
+				JFrame jf2 = new JFrame();
+				jf2.add(resultPanel);
+				jf2.setSize(1000,1000);
+				jf2.setVisible(true);
+				jf2.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				dispose();
 			}
 		});
-        
-        choicePanel.add();
-        
         containerPanel.add(resultPanel);
         containerPanel.add(choicePanel);
         
@@ -122,7 +134,7 @@ public class GUI extends JFrame {
         this.option = option;
         setTitle("Aplikasi pemilihan keputusan jurusan");
         // set sizenya sesuai dengan isi komponen
-        setSize(700, 500);
+        setSize(1000, 1000);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
